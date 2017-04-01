@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed=1.0f;
+	public float speed=5.0f;
 	public float padding =1f;
 	public float xMin;
 	public float xMax;
