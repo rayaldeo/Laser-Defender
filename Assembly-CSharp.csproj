@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Entities\Enemies\EnemyBehaviour.cs" />
      <Compile Include="Assets\Entities\EnemyFormation\EnemySpawner.cs" />
      <Compile Include="Assets\Entities\EnemyFormation\Position.cs" />
+     <Compile Include="Assets\Entities\Projectile\Projectile.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Shredder.cs" />
+     <Compile Include="Assets\Scripts\Shredder.cs" />
      <None Include="Assets\Sprites\read_me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity4d7d2/Editor/Data/UnityExtensions/Unity/GUISystem/4.7.2/Standalone/UnityEngine.UI.dll</HintPath>
