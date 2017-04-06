@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed;
 	public float firingRate=0.5f;
+	public float health=250;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +42,25 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void fireWeapon(){
-		GameObject fireBall =Instantiate(projectile,transform.position,Quaternion.Euler(new Vector3(0f,0f,-90f))) as GameObject;
+		Vector3 startPosition = transform.position+ new Vector3(0f,1,0f);
+		GameObject fireBall =Instantiate(projectile,startPosition,Quaternion.Euler(new Vector3(0f,0f,-90f))) as GameObject;
 		fireBall.rigidbody2D.velocity= new Vector3(0,projectileSpeed,0);
 	}
+	
+	/*
+	void OnTriggerEnter2D(Collider2D collider){
+		Projectile missle = collider.gameObject.GetComponent<Projectile>();
+		if(missle){
+			health -=missle.GetDamage();
+			missle.Hit();
+			if(health<=0){
+				Destroy(gameObject);
+			}
+			Debug.Log ("Player Ship hit by a projectile");
+		}
+		
+	}*/
+	
+	
+	
 }
