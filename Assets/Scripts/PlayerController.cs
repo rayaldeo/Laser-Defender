@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
 		fireBall.rigidbody2D.velocity= new Vector3(0,projectileSpeed,0);
 	}
 	
-	/*
 	void OnTriggerEnter2D(Collider2D collider){
 		Projectile missle = collider.gameObject.GetComponent<Projectile>();
 		if(missle){
@@ -59,8 +58,5 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Player Ship hit by a projectile");
 		}
 		
-	}*/
-	
-	
-	
+	}
 }

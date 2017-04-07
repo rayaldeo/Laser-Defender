@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	public float firingRate=0.5f;
 	public float shotsPerSecond =0.5f;
 
-	/*
+	
 	void OnTriggerEnter2D(Collider2D collider){
 		Projectile missle = collider.gameObject.GetComponent<Projectile>();
 		if(missle){
@@ -19,8 +19,7 @@ public class EnemyBehaviour : MonoBehaviour {
 			}
 			Debug.Log ("Enemy hit by a projectile");
 		}
-	}*/
-	
+	}
 	
 	void Update(){
 		float probability = Time.deltaTime*shotsPerSecond;
