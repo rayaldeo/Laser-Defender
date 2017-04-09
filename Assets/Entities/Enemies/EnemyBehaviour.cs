@@ -11,14 +11,14 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider){
 		Projectile missle = collider.gameObject.GetComponent<Projectile>();
-		if(missle){
-			health -=missle.GetDamage();
-			missle.Hit();
-			if(health<=0){
-				Destroy(gameObject);
+			if(missle){
+				health -=missle.GetDamage();
+				missle.Hit();
+				if(health<=0){
+					Destroy(gameObject);
+				}
+				Debug.Log ("Enemy hit by a projectile");
 			}
-			Debug.Log ("Enemy hit by a projectile");
-		}
 	}
 	
 	void Update(){

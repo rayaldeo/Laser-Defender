@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed;
 	public float firingRate=0.5f;
-	public float health=250;
+	public float health=1000f;
 	
 
 	// Use this for initialization

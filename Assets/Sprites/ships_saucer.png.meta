@@ -7,7 +7,7 @@ TextureImporter:
     21300004: ships_saucer_2
     21300006: ships_saucer_3
     21300008: ships_saucer_4
-    21300010: ships_saucer_
+    21300010: ships_saucer_5
     21300012: ships_saucer_6
     21300014: EnemyProjectile_0
     21300016: EnemyProjectile_1
@@ -104,7 +104,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ships_saucer_
+    - name: ships_saucer_5
       rect:
         serializedVersion: 2
         x: 480

@@ -11,6 +11,8 @@ public class EnemyFormationController : MonoBehaviour {
 	private bool movingRight = false;
 	private float xMax;
 	private float xMin;
+	public float spawnDelay =0.5f;
+	
 	
 	// Use this for initialization
 	void Start () {
@@ -19,7 +21,8 @@ public class EnemyFormationController : MonoBehaviour {
 		Vector3 rightBoundary =Camera.main.ViewportToWorldPoint(new Vector3(1,0,distanceToCamera));
 		xMax =rightBoundary.x; 
 		xMin = leftBoundary.x;  
-		SpawnEnemies();
+		//SpawnEnemies();
+		SpawnUntilFull();
 	}
 	
 	// Update is called once per frame
@@ -40,7 +43,8 @@ public class EnemyFormationController : MonoBehaviour {
 		
 		if(AllMembersDead()){
 			Debug.Log("Empty Formation");
-			SpawnEnemies();
+			//SpawnEnemies();
+			SpawnUntilFull();
 		}
 	}
 	
@@ -53,7 +57,6 @@ public class EnemyFormationController : MonoBehaviour {
 	}
 	
 	void SpawnEnemies(){
-		
 		foreach(Transform child in transform){
 			GameObject enemy =Instantiate(enemyPrefab,child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
@@ -62,5 +65,23 @@ public class EnemyFormationController : MonoBehaviour {
 	
 	public void OnDrawGizmos(){
 		Gizmos.DrawWireCube(transform.position,new Vector3(width,height));
+	}
+	
+	public Transform NextFreePosition(){
+		foreach(Transform childPositionGameObject in transform){
+			if(childPositionGameObject.childCount == 0){
+				return childPositionGameObject;
+			}
+		}
+		return null;
+	}
+	
+	void SpawnUntilFull(){
+		Transform freePosition = NextFreePosition();
+		if(freePosition){
+			GameObject enemy =Instantiate(enemyPrefab,freePosition.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = freePosition;
+			Invoke ("SpawnUntilFull",spawnDelay);
+			}
 	}
 }

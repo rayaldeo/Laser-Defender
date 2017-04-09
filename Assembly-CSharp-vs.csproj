@@ -49,9 +49,9 @@
      <Compile Include="Assets\Entities\Enemies\EnemyBehaviour.cs" />
      <Compile Include="Assets\Entities\EnemyFormation\EnemyFormationController.cs" />
      <Compile Include="Assets\Entities\EnemyFormation\Position.cs" />
+     <Compile Include="Assets\Entities\Player\PlayerController.cs" />
      <Compile Include="Assets\Entities\Projectile\Projectile.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Shredder.cs" />
      <None Include="Assets\Sprites\read_me.txt" />
  <Reference Include="UnityEngine.UI">
