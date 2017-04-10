@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float projectileSpeed;
 	public float firingRate=0.5f;
 	public float health=1000f;
+	public ParticleSystem thrusters;
 	
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 		Vector3 rightMost =Camera.main.ViewportToWorldPoint(new Vector3(1,0,distance));
 		xMin = leftMost.x+padding;
 		xMax=rightMost.x-padding;
+		IgniteThrusters();
 		//Screen.showCursor = false;//Don't show the Cursor
 	}
 	
@@ -58,5 +60,8 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Player Ship hit by a projectile");
 		}
 		
+	}
+	void IgniteThrusters() {
+		thrusters.Play(); // Continue normal emissions
 	}
 }
