@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed;
 	public float firingRate=0.5f;
-	public float health=1000f;
+	public int health=2000;
 	public ParticleSystem thrusters;
+	private HealthKeeper healthKeeper;
 	
 
 	// Use this for initialization
 	void Start () {
+		healthKeeper =GameObject.Find("Health").GetComponent<HealthKeeper>();
 		float distance = transform.position.z-Camera.main.transform.position.z;
 		Vector3 leftMost =Camera.main.ViewportToWorldPoint(new Vector3(0,0,distance));
 		Vector3 rightMost =Camera.main.ViewportToWorldPoint(new Vector3(1,0,distance));
@@ -57,11 +59,16 @@ public class PlayerController : MonoBehaviour {
 			if(health<=0){
 				Destroy(gameObject);
 			}
+			healthKeeper.SetHealth(health);
 			Debug.Log ("Player Ship hit by a projectile");
 		}
 		
 	}
 	void IgniteThrusters() {
 		thrusters.Play(); // Continue normal emissions
+	}
+	
+	public int GetCurrentHealth(){
+		return health;
 	}
 }

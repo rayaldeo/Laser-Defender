@@ -1,13 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Entities\Player\PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HealthKeeper.cs">
     <Files>
-      <File FileName="Assets\Entities\Player\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\HealthKeeper.cs" Line="28" Column="23" />
+      <File FileName="Assets\Entities\Player\PlayerController.cs" Line="62" Column="4" />
       <File FileName="Assets\Entities\EnemyFormation\EnemyFormationController.cs" Line="1" Column="1" />
       <File FileName="Assets\Entities\EnemyFormation\Position.cs" Line="1" Column="1" />
-      <File FileName="Assets\Entities\Enemies\EnemyBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Entities\Enemies\EnemyBehaviour.cs" Line="25" Column="24" />
       <File FileName="Assets\Scripts\LevelManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Shredder.cs" Line="1" Column="1" />
+      <File FileName="Assets\ScoreKeeper.cs" Line="22" Column="1" />
+      <File FileName="Assets\Entities\Projectile\Projectile.cs" Line="13" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

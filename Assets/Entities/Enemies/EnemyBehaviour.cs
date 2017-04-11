@@ -7,7 +7,13 @@ public class EnemyBehaviour : MonoBehaviour {
 	public float projectileSpeed;
 	public float firingRate=0.5f;
 	public float shotsPerSecond =0.5f;
+	public int score =1000;
+	private ScoreKeeper scoreKeeper;
 
+	
+	void Start(){
+		scoreKeeper =GameObject.Find("Score").GetComponent<ScoreKeeper>();
+	}
 	
 	void OnTriggerEnter2D(Collider2D collider){
 		Projectile missle = collider.gameObject.GetComponent<Projectile>();
@@ -16,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour {
 				missle.Hit();
 				if(health<=0){
 					Destroy(gameObject);
+					scoreKeeper.ScorePoints(score);
 				}
 				Debug.Log ("Enemy hit by a projectile");
 			}
@@ -27,7 +34,6 @@ public class EnemyBehaviour : MonoBehaviour {
 			fireWeapon();
 		}
 	}
-	
 
 	void fireWeapon(){
 		Vector3 startPosition = transform.position+ new Vector3(0f,-0.1f,0f);
