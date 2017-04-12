@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	public float shotsPerSecond =0.5f;
 	public int score =1000;
 	private ScoreKeeper scoreKeeper;
+	public AudioClip fireWeaponSoundEffect,enemyDeath;
 
 	
 	void Start(){
@@ -21,8 +22,7 @@ public class EnemyBehaviour : MonoBehaviour {
 				health -=missle.GetDamage();
 				missle.Hit();
 				if(health<=0){
-					Destroy(gameObject);
-					scoreKeeper.ScorePoints(score);
+					Die();
 				}
 				Debug.Log ("Enemy hit by a projectile");
 			}
@@ -36,8 +36,14 @@ public class EnemyBehaviour : MonoBehaviour {
 	}
 
 	void fireWeapon(){
-		Vector3 startPosition = transform.position+ new Vector3(0f,-0.1f,0f);
-		GameObject fireBall =Instantiate(projectile,startPosition,Quaternion.identity) as GameObject;
+		GameObject fireBall =Instantiate(projectile,transform.position,Quaternion.identity) as GameObject;
 		fireBall.rigidbody2D.velocity= new Vector3(0,-projectileSpeed,0);
+		AudioSource.PlayClipAtPoint(fireWeaponSoundEffect,transform.position,1f);
+	}
+	
+	void Die(){
+		Destroy(gameObject);
+		scoreKeeper.ScorePoints(score);
+		AudioSource.PlayClipAtPoint(enemyDeath,transform.position,2f);
 	}
 }

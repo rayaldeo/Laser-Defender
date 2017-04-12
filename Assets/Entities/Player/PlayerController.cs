@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour {
 	public int health=2000;
 	public ParticleSystem thrusters;
 	private HealthKeeper healthKeeper;
+	public AudioClip fireWeaponSound;
+	private LevelManager levelManager;
 	
 
 	// Use this for initialization
 	void Start () {
+		levelManager = GameObject.FindObjectOfType<LevelManager>();
 		healthKeeper =GameObject.Find("Health").GetComponent<HealthKeeper>();
 		float distance = transform.position.z-Camera.main.transform.position.z;
 		Vector3 leftMost =Camera.main.ViewportToWorldPoint(new Vector3(0,0,distance));
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 		Vector3 startPosition = transform.position+ new Vector3(0f,1,0f);
 		GameObject fireBall =Instantiate(projectile,startPosition,Quaternion.Euler(new Vector3(0f,0f,-90f))) as GameObject;
 		fireBall.rigidbody2D.velocity= new Vector3(0,projectileSpeed,0);
+		AudioSource.PlayClipAtPoint(fireWeaponSound,transform.position,1f);
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider){
@@ -58,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 			missle.Hit();
 			if(health<=0){
 				Destroy(gameObject);
+				levelManager.LoadLevel("Lose");
 			}
 			healthKeeper.SetHealth(health);
 			Debug.Log ("Player Ship hit by a projectile");
