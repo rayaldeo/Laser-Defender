@@ -22,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour {
 				health -=missle.GetDamage();
 				missle.Hit();
 				if(health<=0){
+				scoreKeeper.ScorePoints(score);
 					Die();
 				}
 				Debug.Log ("Enemy hit by a projectile");
@@ -43,7 +44,6 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	void Die(){
 		Destroy(gameObject);
-		scoreKeeper.ScorePoints(score);
 		AudioSource.PlayClipAtPoint(enemyDeath,transform.position,2f);
 	}
 }
