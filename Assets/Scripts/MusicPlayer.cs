@@ -29,12 +29,13 @@ public class MusicPlayer : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("MusicPlayer: Loaded level: "+ level);
-		music.Stop();
-		if(level==0){
-			music.clip = startClip;
-		}if(level==3){
+		if(level==3 || level ==1|| level ==2){
 			music.clip = gameClip;
-		}if(level==2){
+		}else if(level==0){
+			music.Stop();
+			music.clip = startClip;
+		}else{
+			music.Stop();
 			music.clip = endClip;
 		}
 		music.loop = true;
