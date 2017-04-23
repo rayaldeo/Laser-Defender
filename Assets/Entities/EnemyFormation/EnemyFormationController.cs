@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyFormationController : MonoBehaviour {
-	//public GameObject enemyPrefab,enemyPrefab01;
+	public GameObject enemyPrefab;
 	public float width =10f;
 	public float height = 5f;
 	public float speed=10.0f;
@@ -10,11 +10,15 @@ public class EnemyFormationController : MonoBehaviour {
 	private float xMax;
 	private float xMin;
 	public float spawnDelay =0.5f;
-	private int enemyIndex;
-	public GameObject[] enemies;
+	public int amountOfEnemiesForThisLevel;
+	private int tempCount;
+	private bool areAllEnemiesDead;
+	private LevelManager levelManager;
 	
 	// Use this for initialization
 	void Start () {
+		levelManager =GameObject.Find("LevelManager").GetComponent<LevelManager>();
+		tempCount =0;
 		float distanceToCamera = transform.position.z-Camera.main.transform.position.z;
 		Vector3 leftBoundary =Camera.main.ViewportToWorldPoint(new Vector3(0,0,distanceToCamera));
 		Vector3 rightBoundary =Camera.main.ViewportToWorldPoint(new Vector3(1,0,distanceToCamera));
@@ -33,18 +37,13 @@ public class EnemyFormationController : MonoBehaviour {
 		}
 		float rightEdgeFormation = transform.position.x+(0.4f*width);
 		float leftEdgeFormation = transform.position.x-(0.4f*width);	
-		
 		if(leftEdgeFormation<xMin){
 			movingRight=true;
 		}else if(rightEdgeFormation>xMax){
 			movingRight=false;
 		}
-		enemyIndex =Random.Range(0, 1);
-		Debug.Log("This Enemy was chosen" + enemyIndex);
 		if(AllMembersDead()){
-			Debug.Log("Empty Formation");
-			//SpawnEnemies();
-			SpawnUntilFull();
+			levelManager.LoadNextLevel();
 		}
 	}
 	
@@ -58,7 +57,7 @@ public class EnemyFormationController : MonoBehaviour {
 	
 	void SpawnEnemies(){
 		foreach(Transform child in transform){
-			GameObject enemy =Instantiate(PickARandomEnemy(),child.transform.position, Quaternion.identity) as GameObject;
+			GameObject enemy =Instantiate(enemyPrefab,child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
 		}
 	}
@@ -69,25 +68,27 @@ public class EnemyFormationController : MonoBehaviour {
 	
 	public Transform NextFreePosition(){
 		foreach(Transform childPositionGameObject in transform){
-			if(childPositionGameObject.childCount == 0){
-				return childPositionGameObject;
+				if(childPositionGameObject.childCount == 0){
+					return childPositionGameObject;
+				}
 			}
-		}
 		return null;
 	}
 	
 	void SpawnUntilFull(){
 		Transform freePosition = NextFreePosition();
-		if(freePosition){
-			GameObject enemy =Instantiate(PickARandomEnemy(),freePosition.position, Quaternion.identity) as GameObject;
+		/*
+			An Enemy will only be spawed if there is a free position within the
+			Enemy Formation and there should only be so many enemies spawning 
+			into to level.Without the second condition,enemies will continue to
+			spawn into the Level indefinitely.
+		*/
+		if(freePosition && tempCount<amountOfEnemiesForThisLevel){
+			GameObject enemy =Instantiate(enemyPrefab,freePosition.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = freePosition;
 			Invoke ("SpawnUntilFull",spawnDelay);
+			tempCount++;
 			}
 	}
-	GameObject PickARandomEnemy(){
-		//int enemyIndex=0;
-		return enemies[enemyIndex];
-		
-		
-	}
+	
 }

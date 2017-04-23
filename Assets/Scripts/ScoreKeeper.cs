@@ -4,13 +4,12 @@ using System.Collections;
 
 public class ScoreKeeper : MonoBehaviour {
 
-	public static int score =0;
+	public static int score;
 	private Text myText;
-	public float rate =0.5f;
 	
 	void Start(){
 		myText = GameObject.Find("Score").GetComponent<Text>();
-		ResetScore();
+		myText.text= getPoints().ToString();
 	}
 	
 	public void ScorePoints(int points){
@@ -20,6 +19,10 @@ public class ScoreKeeper : MonoBehaviour {
 	
 	public static void ResetScore(){
 		score =0;
+	}
+	
+	public int getPoints(){
+		return score;
 	}
 		
 }
