@@ -13,6 +13,17 @@ TextureImporter:
     21300016: EnemyProjectile_1
     21300018: EnemyProjectile_2
     21300020: EnemyProjectile_3
+    21300022: redEnemyShip_0
+    21300024: redEnemyShip_1
+    21300026: redEnemyShip_2
+    21300028: redEnemyShip_3
+    21300030: redEnemyShip_4
+    21300032: redEnemyShip_5
+    21300034: redEnemyShip_6
+    21300036: redEnemyShip_Projectile_0
+    21300038: redEnemyShip_Projectile_1
+    21300040: redEnemyShip_Projectile_2
+    21300042: redEnemyShip_Projectile_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -160,6 +171,116 @@ TextureImporter:
         x: 49
         y: 856
         width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 325
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 321
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 313
+        width: 88
+        height: 87
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 309
+        width: 96
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_4
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 313
+        width: 93
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_5
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 312
+        width: 94
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 313
+        width: 95
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_Projectile_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 406
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_Projectile_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 406
+        width: 17
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_Projectile_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 408
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: redEnemyShip_Projectile_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 408
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}

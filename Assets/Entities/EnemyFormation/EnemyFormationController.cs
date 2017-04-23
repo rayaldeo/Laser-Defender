@@ -2,17 +2,16 @@
 using System.Collections;
 
 public class EnemyFormationController : MonoBehaviour {
-	public GameObject enemyPrefab;
+	//public GameObject enemyPrefab,enemyPrefab01;
 	public float width =10f;
 	public float height = 5f;
-	
 	public float speed=10.0f;
-	
 	private bool movingRight = false;
 	private float xMax;
 	private float xMin;
 	public float spawnDelay =0.5f;
-	
+	private int enemyIndex;
+	public GameObject[] enemies;
 	
 	// Use this for initialization
 	void Start () {
@@ -40,7 +39,8 @@ public class EnemyFormationController : MonoBehaviour {
 		}else if(rightEdgeFormation>xMax){
 			movingRight=false;
 		}
-		
+		enemyIndex =Random.Range(0, 1);
+		Debug.Log("This Enemy was chosen" + enemyIndex);
 		if(AllMembersDead()){
 			Debug.Log("Empty Formation");
 			//SpawnEnemies();
@@ -58,7 +58,7 @@ public class EnemyFormationController : MonoBehaviour {
 	
 	void SpawnEnemies(){
 		foreach(Transform child in transform){
-			GameObject enemy =Instantiate(enemyPrefab,child.transform.position, Quaternion.identity) as GameObject;
+			GameObject enemy =Instantiate(PickARandomEnemy(),child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
 		}
 	}
@@ -79,9 +79,15 @@ public class EnemyFormationController : MonoBehaviour {
 	void SpawnUntilFull(){
 		Transform freePosition = NextFreePosition();
 		if(freePosition){
-			GameObject enemy =Instantiate(enemyPrefab,freePosition.position, Quaternion.identity) as GameObject;
+			GameObject enemy =Instantiate(PickARandomEnemy(),freePosition.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = freePosition;
 			Invoke ("SpawnUntilFull",spawnDelay);
 			}
+	}
+	GameObject PickARandomEnemy(){
+		//int enemyIndex=0;
+		return enemies[enemyIndex];
+		
+		
 	}
 }
